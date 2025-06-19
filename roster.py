@@ -7,4 +7,11 @@ player = {"Last Name": ["Claude", "Brown", "Cadeau", "Davis", "Tyson", "Davis", 
           "height":[83, 82, 73, 72, 83, 75, 75, 78, 76, 82],
           "weight":[230, 215, 180, 180, 200, 215, 195, 195, 190, 235]}
 data = pd.DataFrame(player)
+
+# bmi = weight in kg/ height in meters squared
+data["bmi"] = (data["weight"]/2.205)/((data["height"]/39.37)**2)
+data["bmi"] = data["bmi"].round(2)
+
 print(data)
+
+data.to_csv("bmi.csv")
